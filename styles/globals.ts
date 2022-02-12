@@ -1,18 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-type TTheme = {
-  color9: string;
-  color8: string;
-  color7: string;
-  color6: string;
-  color5: string;
-  color4: string;
-  color3: string;
-  color2: string;
-  color1: string;
-};
-
-export const theme: TTheme = {
+export const theme = {
   color9: "#f8f9fa",
   color8: "#e9ecef",
   color7: "#dee2e6",
@@ -24,7 +12,28 @@ export const theme: TTheme = {
   color1: "#212529",
 };
 
-export const GlobalStyles = createGlobalStyle<{ theme: TTheme }>`
+export const size = {
+  mobileS: "320px",
+  mobileM: "375px",
+  mobileL: "425px",
+  tablet: "768px",
+  laptop: "1024px",
+  laptopL: "1440px",
+  desktop: "2560px",
+};
+
+export const device = {
+  mobileS: `(min-width: ${size.mobileS})`,
+  mobileM: `(min-width: ${size.mobileM})`,
+  mobileL: `(min-width: ${size.mobileL})`,
+  tablet: `(min-width: ${size.tablet})`,
+  laptop: `(min-width: ${size.laptop})`,
+  laptopL: `(min-width: ${size.laptopL})`,
+  desktop: `(min-width: ${size.desktop})`,
+  desktopL: `(min-width: ${size.desktop})`,
+};
+
+export const GlobalStyles = createGlobalStyle<{ theme: typeof theme }>`
 * {
    box-sizing: border-box;
 }
