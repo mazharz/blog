@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styled from "styled-components";
 import { device, size } from "@/Styles/globals";
+import { Header } from "./header";
 
 const Container = styled.div`
   max-width: 100%;
@@ -17,8 +18,7 @@ const Container = styled.div`
 const Layout: FC = ({ children }) => {
   return (
     <Container>
-      {/* TODO */}
-      <header>header here</header>
+      <Header />
       {children}
       {/* TODO */}
       <footer>footer here</footer>
