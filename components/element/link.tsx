@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 type props = {
   href: string;
-  isActive: boolean;
+  isActive?: boolean;
+  isExternal?: boolean;
 };
 
 const LinkAnchor = styled.a<{ isActive: boolean }>`
@@ -12,13 +13,22 @@ const LinkAnchor = styled.a<{ isActive: boolean }>`
   :hover {
     color: ${({ theme }) => theme.color3};
   }
-  font-weight: 500;
   cursor: pointer;
+  text-decoration: ${({ isActive }) => (isActive ? "none" : "underline")};
   transition: color 0.3s ease-in-out;
 `;
 
-const Link: FC<props> = ({ children, href, isActive }) => {
-  return (
+const Link: FC<props> = ({
+  children,
+  href,
+  isActive = false,
+  isExternal = false,
+}) => {
+  return isExternal ? (
+    <LinkAnchor href={href} isActive={isActive} target="_blank">
+      {children}
+    </LinkAnchor>
+  ) : (
     <NextLink href={href}>
       <LinkAnchor isActive={isActive}>{children}</LinkAnchor>
     </NextLink>

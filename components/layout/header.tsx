@@ -23,10 +23,7 @@ const Nav = styled.nav`
   gap: 1.6rem;
 `;
 
-const NavLink = styled.button`
-  background: none;
-  border: none;
-  outline: none;
+const NavLink = styled.div`
   cursor: pointer;
   font-size: 0.9rem;
 `;

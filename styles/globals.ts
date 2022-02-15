@@ -41,17 +41,24 @@ export const GlobalStyles = createGlobalStyle<{ theme: typeof theme }>`
 html,
 body {
   background: ${({ theme }) => theme.color9};
-  color: ${({ theme }) => theme.color1};
+  color: ${({ theme }) => theme.color5};
+  font-weight: 500;
   padding: 0;
   margin: 0;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: 400;
   font-style: normal;
+  min-height: 100%;
+  height: 100%;
 }
 
 * {
   box-sizing: border-box;
 }
 
-input, textarea, button {font-family: inherit}`;
+input, textarea, button {font-family: inherit}
+
+#__next {
+  height: 100%;
+}
+`;
