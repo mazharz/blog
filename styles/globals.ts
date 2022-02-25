@@ -12,7 +12,7 @@ export const theme = {
   color1: "#212529",
 };
 
-export const size = {
+export const screenSize = {
   mobileS: "320px",
   mobileM: "375px",
   mobileL: "425px",
@@ -23,14 +23,34 @@ export const size = {
 };
 
 export const device = {
-  mobileS: `(min-width: ${size.mobileS})`,
-  mobileM: `(min-width: ${size.mobileM})`,
-  mobileL: `(min-width: ${size.mobileL})`,
-  tablet: `(min-width: ${size.tablet})`,
-  laptop: `(min-width: ${size.laptop})`,
-  laptopL: `(min-width: ${size.laptopL})`,
-  desktop: `(min-width: ${size.desktop})`,
-  desktopL: `(min-width: ${size.desktop})`,
+  mobileS: `(min-width: ${screenSize.mobileS})`,
+  mobileM: `(min-width: ${screenSize.mobileM})`,
+  mobileL: `(min-width: ${screenSize.mobileL})`,
+  tablet: `(min-width: ${screenSize.tablet})`,
+  laptop: `(min-width: ${screenSize.laptop})`,
+  laptopL: `(min-width: ${screenSize.laptopL})`,
+  desktop: `(min-width: ${screenSize.desktop})`,
+  desktopL: `(min-width: ${screenSize.desktop})`,
+};
+
+export const remByPx = {
+  1: "0.0625rem",
+  2: "0.125rem",
+  4: "0.25rem",
+  6: "0.375rem",
+  8: "0.5rem",
+  10: "0.625rem",
+  12: "0.75rem",
+  14: "0.875rem",
+  16: "1rem",
+  18: "1.125rem",
+  20: "1.25rem",
+  22: "1.375rem",
+  24: "1.5rem",
+  26: "1.625rem",
+  28: "1.75rem",
+  30: "1.875rem",
+  50: "3.125rem",
 };
 
 export const GlobalStyles = createGlobalStyle<{ theme: typeof theme }>`

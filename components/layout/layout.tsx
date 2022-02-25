@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { device, size } from "@/Styles/globals";
+import { device, screenSize } from "@/Styles/globals";
 import { Header } from "./header";
 import { Footer } from "./footer";
 
@@ -13,7 +13,7 @@ const Container = styled.div`
   flex-direction: column;
 
   @media ${device.laptop} {
-    max-width: ${size.laptop};
+    max-width: ${screenSize.laptop};
     margin: 0 auto;
     padding: 0;
   }

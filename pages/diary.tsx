@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 
 const Diary: NextPage = () => {
-  return <div>i am diary page</div>;
+  return <div style={{ margin: "30px 0" }}>To be created...</div>;
 };
 
 export default Diary;

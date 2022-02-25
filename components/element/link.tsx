@@ -11,9 +11,9 @@ type props = {
 const LinkAnchor = styled.a<{ isActive: boolean }>`
   color: ${({ theme, isActive }) => (isActive ? theme.color4 : theme.color5)};
   :hover {
-    color: ${({ theme }) => theme.color3};
+    color: ${({ theme }) => theme.color4};
   }
-  cursor: pointer;
+  cursor: ${({ isActive }) => (isActive ? "default" : "pointer")};
   text-decoration: ${({ isActive }) => (isActive ? "none" : "underline")};
   transition: color 0.3s ease-in-out;
 `;
