@@ -6,9 +6,13 @@ import { remByPx, screenSize } from "@/Styles/globals";
 import { useEffect, useState } from "react";
 import { marked } from "marked";
 import { Meta } from "@/Components/layout/meta";
+import fs from "fs";
+import path from "path";
 
 type props = {
   entry: string;
+  title: string;
+  content: string;
 };
 
 const BackButton = styled.div`
@@ -59,38 +63,21 @@ const DiaryTextContainer = styled.div`
   }
 `;
 
-const DiaryEntry: NextPage<props> = ({ entry }) => {
-  const [renderedEntry, setRenderedEntry] = useState<string>("");
-  const diaryTitle = diaryEntries.blog.filter(item => item.id === entry)[0]
-    .title;
-
-  useEffect(
-    function () {
-      const filename = "/data/diary/" + entry + ".md";
-      fetch(filename)
-        .then(response => response.text())
-        .then(data => {
-          marked.setOptions({ gfm: true });
-          setRenderedEntry(marked.parse(data));
-        });
-    },
-    [entry]
-  );
-
+const DiaryEntry: NextPage<props> = ({ entry, title, content }) => {
   return (
     <div>
       <Meta
-        title={`MZ | ${diaryTitle}`}
-        description={`Mazhar's diary entry named ${diaryTitle}.`}
+        title={`MZ | ${title}`}
+        description={`Mazhar's diary entry named ${title}.`}
       />
       <BackButton>
         <Link href="/diary" isButtonShaped>
           ←
         </Link>
       </BackButton>
-      <DiaryHeaderText>{diaryTitle}</DiaryHeaderText>
+      <DiaryHeaderText>{title}</DiaryHeaderText>
       <DiaryTextContainer
-        dangerouslySetInnerHTML={{ __html: renderedEntry }}
+        dangerouslySetInnerHTML={{ __html: content }}
       ></DiaryTextContainer>
     </div>
   );
@@ -98,9 +85,19 @@ const DiaryEntry: NextPage<props> = ({ entry }) => {
 
 export const getStaticProps: GetStaticProps = async context => {
   const { entry } = context.params as { entry: string };
+  const title = diaryEntries.blog.filter(item => item.id === entry)[0].title;
+
+  const filename = path.join(process.cwd(), `/public/data/diary/${entry}.md`);
+
+  const markdownText = fs.readFileSync(filename, "utf8");
+  marked.setOptions({ gfm: true });
+  const content = marked.parse(markdownText);
+
   return {
     props: {
-      entry: entry,
+      entry,
+      title,
+      content: content,
     },
   };
 };
