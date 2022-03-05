@@ -9,12 +9,14 @@
   },
   "dependencies": {
     "@types/styled-components": "^5.1.22",
+    "marked": "^4.0.12",
     "next": "12.0.10",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "@types/marked": "^4.0.2",
     "@types/node": "17.0.17",
     "@types/react": "17.0.39",
     "babel-plugin-styled-components": "^2.0.2",

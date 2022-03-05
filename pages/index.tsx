@@ -1,6 +1,6 @@
+import { Meta } from "@/Components/layout/meta";
 import { device, remByPx } from "@/Styles/globals";
 import type { NextPage } from "next";
-import Head from "next/head";
 import styled from "styled-components";
 
 const HeadingTitle = styled.h1`
@@ -36,13 +36,10 @@ const RegularParagraph = styled.p`
 const Home: NextPage = () => {
   return (
     <div>
-      <Head>
-        <title>Mazhar Zandsalimi</title>
-        <meta
-          name="description"
-          content="Mazhar Zandsalimi's personal website"
-        />
-      </Head>
+      <Meta
+        title="Mazhar Zandsalimi"
+        description="Mazhar Zandsalimi's personal website"
+      />
 
       <main>
         <HeadingTitle>Hey!</HeadingTitle>

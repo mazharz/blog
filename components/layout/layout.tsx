@@ -21,6 +21,8 @@ const Container = styled.div`
 
 const BodyContainer = styled.div`
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Layout: FC = ({ children }) => {
