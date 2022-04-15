@@ -9,6 +9,7 @@ export const BackButton = styled.div`
 `;
 
 export const DiaryHeaderText = styled.h1`
+  text-transform: capitalize;
   margin: 0 auto ${remByPx[18]};
   padding: ${remByPx[18]} 0;
   border-bottom: ${({ theme }) => `${remByPx[2]} solid ${theme.color8}`};

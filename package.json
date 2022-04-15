@@ -9,9 +9,11 @@
     "deploy": "next build && next export && touch ./out/.nojekyll && gh-pages -t -d out/"
   },
   "dependencies": {
+    "@types/ramda": "^0.28.11",
     "@types/styled-components": "^5.1.22",
     "marked": "^4.0.12",
     "next": "12.0.10",
+    "ramda": "^0.28.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "styled-components": "^5.3.3"

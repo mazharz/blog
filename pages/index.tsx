@@ -1,4 +1,4 @@
-import { Meta } from "@/Components/layout/meta";
+import { Meta } from "@/Components/layout/meta/meta";
 import type { NextPage } from "next";
 import {
   BigParagraph,

@@ -15,3 +15,7 @@ export const DiaryEntryListContainer = styled.div`
   gap: 2rem;
   row-gap: 1rem;
 `;
+
+export const Capitalize = styled.span`
+  text-transform: capitalize;
+`;
