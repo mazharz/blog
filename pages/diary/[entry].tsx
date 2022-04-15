@@ -3,7 +3,6 @@ import { diaryEntries } from "@/Data/diary";
 import { Link } from "@/Components/element/link";
 import styled from "styled-components";
 import { remByPx, screenSize } from "@/Styles/globals";
-import { useEffect, useState } from "react";
 import { marked } from "marked";
 import { Meta } from "@/Components/layout/meta";
 import fs from "fs";
