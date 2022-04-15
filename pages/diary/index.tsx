@@ -1,23 +1,8 @@
 import { NextPage } from "next";
 import { diaryEntries } from "@/Data/diary";
 import { Meta } from "@/Components/layout/meta";
-import styled from "styled-components";
 import { Link } from "@/Components/element/link";
-
-const DiaryContainer = styled.div`
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const DiaryEntryListContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  row-gap: 1rem;
-`;
+import { DiaryContainer, DiaryEntryListContainer } from "@/Styles/pages/diary";
 
 const Diary: NextPage = () => {
   return (

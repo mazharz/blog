@@ -1,37 +1,11 @@
 import { Meta } from "@/Components/layout/meta";
-import { device, remByPx } from "@/Styles/globals";
 import type { NextPage } from "next";
-import styled from "styled-components";
-
-const HeadingTitle = styled.h1`
-  font-size: ${remByPx[50]};
-  color: ${props => props.theme.color4};
-`;
-const BigParagraph = styled.p`
-  font-size: ${remByPx[30]};
-  color: ${props => props.theme.color4};
-`;
-const RegularParagraphContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 0;
-  margin: ${remByPx[30]} 0;
-
-  @media ${device.tablet} {
-    grid-template-columns: repeat(2, 1fr);
-    gap: ${remByPx[30]};
-  }
-
-  @media ${device.laptop} {
-    grid-template-columns: repeat(3, 1fr);
-    gap: ${remByPx[50]};
-  }
-`;
-const RegularParagraph = styled.p`
-  font-size: ${remByPx[16]};
-  line-height: ${remByPx[24]};
-  color: ${props => props.theme.color4};
-`;
+import {
+  BigParagraph,
+  HeadingTitle,
+  RegularParagraph,
+  RegularParagraphContainer,
+} from "@/Styles/index";
 
 const Home: NextPage = () => {
   return (
