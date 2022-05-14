@@ -42,8 +42,8 @@ const Home: NextPage = () => {
           </RegularParagraph>
         </RegularParagraphContainer>
         <BigParagraph>
-          On this site, you can find links to my hobby projects and diary
-          entires that I&apos;ve come up with over the years.
+          On this site, you can find links to my hobby projects and blog posts
+          that I&apos;ve come up with over the years.
         </BigParagraph>
       </main>
     </div>

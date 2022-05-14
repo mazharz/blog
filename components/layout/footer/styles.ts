@@ -55,6 +55,7 @@ export const NavContainer = styled.div<{
       transparent
     );
     width: 3rem;
+    pointer-events: none;
   }
   ::after {
     content: "";
@@ -70,6 +71,7 @@ export const NavContainer = styled.div<{
       transparent
     );
     width: 3rem;
+    pointer-events: none;
   }
   @media ${device.tablet} {
     ::before {
