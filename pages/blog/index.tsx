@@ -1,11 +1,8 @@
 import { GetStaticProps, NextPage } from "next";
 import { Meta } from "@/Components/layout/meta/meta";
 import { Link } from "@/Components/element/link/link";
-import {
-  Capitalize,
-  DiaryContainer,
-  DiaryEntryListContainer,
-} from "@/Styles/pages/diary";
+import { Capitalize, DiaryEntryListContainer } from "@/Styles/pages/diary";
+import { CenteredFullHeightContainer } from "@/Styles/globals";
 import { getBlogList } from "@/Lib/helper/blog/blog";
 import { getBlogTitleByEntry } from "@/Lib/helper/blog/utils";
 
@@ -20,7 +17,7 @@ const Diary: NextPage<props> = ({ entries }) => {
         title="MZ | Diary"
         description="The list of Mazhar's diary entries."
       />
-      <DiaryContainer>
+      <CenteredFullHeightContainer>
         <DiaryEntryListContainer>
           {entries.map((entry, index) => (
             <Link key={index} href={"/blog/" + entry} isButtonShaped>
@@ -28,7 +25,7 @@ const Diary: NextPage<props> = ({ entries }) => {
             </Link>
           ))}
         </DiaryEntryListContainer>
-      </DiaryContainer>
+      </CenteredFullHeightContainer>
     </>
   );
 };

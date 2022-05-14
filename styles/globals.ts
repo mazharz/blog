@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const theme = {
   color9: "#f8f9fa",
@@ -84,4 +84,11 @@ input, textarea, button {font-family: inherit}
 #__next {
   height: 100%;
 }
+`;
+
+export const CenteredFullHeightContainer = styled.div`
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
