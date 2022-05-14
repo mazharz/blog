@@ -10,6 +10,7 @@ export const theme = {
   color3: "#495057",
   color2: "#343a40",
   color1: "#212529",
+  accent: "#ed0f93",
 };
 
 export const screenSize = {
@@ -55,10 +56,6 @@ export const remByPx = {
 };
 
 export const GlobalStyles = createGlobalStyle<{ theme: typeof theme }>`
-* {
-   box-sizing: border-box;
-}
-
 html,
 body {
   background: ${({ theme }) => theme.color9};
@@ -75,6 +72,11 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+*::selection {
+  color: ${({ theme }) => theme.accent};
+  background: ${({ theme }) => theme.color8}
 }
 
 input, textarea, button {font-family: inherit}

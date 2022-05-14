@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { remByPx } from "@/Styles/globals";
 
 export const LinkAnchor = styled.a<{ isActive: boolean }>`
-  color: ${({ theme, isActive }) => (isActive ? theme.color4 : theme.color5)};
+  color: ${({ theme, isActive }) => (isActive ? theme.accent : theme.color5)};
   :hover {
-    color: ${({ theme }) => theme.color4};
+    color: ${({ theme, isActive }) => (isActive ? theme.accent : theme.color4)};
   }
   cursor: ${({ isActive }) => (isActive ? "default" : "pointer")};
   text-decoration: ${({ isActive }) => (isActive ? "none" : "underline")};
