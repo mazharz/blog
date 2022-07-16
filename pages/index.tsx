@@ -6,6 +6,7 @@ import {
   RegularParagraph,
   RegularParagraphContainer,
 } from "@/Styles/index";
+import { Link } from "@/Components/element/link/link";
 
 const Home: NextPage = () => {
   return (
@@ -18,32 +19,46 @@ const Home: NextPage = () => {
       <main>
         <HeadingTitle>Hey!</HeadingTitle>
         <BigParagraph>
-          I&apos;m a software engineer who loves perfection. I&apos;m always
-          working on something that I believe makes the future a brighter place.
+          I&apos;m Mazhar (Maz for short), I&apos;m a software engineer
+          homosapien. Let me tell you a bit about myself:
         </BigParagraph>
         <RegularParagraphContainer>
           <RegularParagraph>
-            I went to the University of Kurdistan when I was young! Back then I
-            fell in love with Linux and the open source world. I thought I would
-            become a sysadmin, I even installed openstack for my university. But
-            then, something strange happened!
+            I&apos;m an optimistic nihilist, meaning that I believe that there
+            is no point to life other than taking on the challenge to{" "}
+            <b>make what is, better</b>.
           </RegularParagraph>
           <RegularParagraph>
-            I figured what I do in life should match my philosophy of life. So I
-            changed my path towards a more influential one. I figured I want to
-            make things and contribute to the world. And since I used my chrome
-            more than anything, I chose web!
+            I&apos;m more of a Cartesian skepticist, meaning I doubt most,
+            whilst accepting new maxims only through logical reasoning and the
+            scientific method.
           </RegularParagraph>
           <RegularParagraph>
-            On a more personal level, I study French, philosophy, and psychology
-            on very beginner levels. These satisfy the side of me that wants to
-            pursue questions like &quot;Why are we here?!&quot; and
-            &quot;What&apos;s the meaning of life?&quot;
+            I take on the approach of slowing down the <b>inevitable</b> demise,
+            meaning I try my best to defer unfortunate events as best as I can
+            (ex. getting old and weary).
+          </RegularParagraph>
+          <RegularParagraph>
+            I&apos;m more of a realist. I prefer the harsh reality to the
+            sugar-coated fake masks that humans usually like to make to deceive
+            themselves.
+          </RegularParagraph>
+          <RegularParagraph>
+            I&apos;m kind of a perfectionist, meaning I try my best to do what I
+            do in the best way possible, but I stop at the &quot;good
+            enough&quot; point.
+          </RegularParagraph>
+          <RegularParagraph>
+            I like to stay humble, as I know that I know nothing, meaning for
+            every subject that I kinda know, there is someone who masters it
+            perfectly.
           </RegularParagraph>
         </RegularParagraphContainer>
         <BigParagraph>
-          On this site, you can find links to my hobby projects and blog posts
-          that I&apos;ve come up with over the years.
+          On this site, you can find links to my hobby{" "}
+          <Link href="/projects">projects</Link> and blog{" "}
+          <Link href="/blog">posts</Link> that I&apos;ve come up with over the
+          years.
         </BigParagraph>
       </main>
     </div>

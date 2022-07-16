@@ -34,9 +34,6 @@ export const DiaryTextContainer = styled.div`
     content: counter(h2counter) "." counter(h3counter) "  ";
     counter-increment: h3counter;
   }
-  p {
-    text-align: justify;
-  }
   li {
     margin: ${remByPx[8]} 0;
   }

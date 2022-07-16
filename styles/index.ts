@@ -19,12 +19,14 @@ export const RegularParagraphContainer = styled.div`
 
   @media ${device.tablet} {
     grid-template-columns: repeat(2, 1fr);
-    gap: ${remByPx[30]};
+    row-gap: ${remByPx[6]};
+    column-gap: ${remByPx[30]};
   }
 
   @media ${device.laptop} {
     grid-template-columns: repeat(3, 1fr);
-    gap: ${remByPx[50]};
+    row-gap: ${remByPx[10]};
+    column-gap: ${remByPx[50]};
   }
 `;
 

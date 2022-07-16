@@ -14,7 +14,7 @@ const Diary: NextPage<props> = ({ entries }) => {
   return (
     <>
       <Meta
-        title="MZ | Diary"
+        title="MZ | Blog"
         description="The list of Mazhar's diary entries."
       />
       <CenteredFullHeightContainer>
