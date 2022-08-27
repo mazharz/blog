@@ -8,23 +8,35 @@ import {
 } from "@/Styles/pages/diary/entry";
 import { ParsedUrlQuery } from "querystring";
 import { getBlogData, getBlogList } from "@/Lib/helper/blog/blog";
-import { BlogEntry } from "@/Lib/types/blog";
+import { TBlogPost } from "@/Lib/types/blog";
+import Prism from "prismjs";
+import { useEffect } from "react";
 
-const DiaryEntry: NextPage<BlogEntry> = ({ title, content }) => {
+type Props = {
+  post: string;
+};
+
+const DiaryEntry: NextPage<Props> = ({ post }) => {
+  const postData: TBlogPost = JSON.parse(post);
+
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
   return (
     <div>
       <Meta
-        title={`MZ | ${title}`}
-        description={`Mazhar's diary entry named ${title}.`}
+        title={`MZ | ${postData.title}`}
+        description={`Mazhar's diary entry named ${postData.title}.`}
       />
       <BackButton>
         <Link href="/blog" isButtonShaped>
           ←
         </Link>
       </BackButton>
-      <DiaryHeaderText>{title}</DiaryHeaderText>
+      <DiaryHeaderText>{postData.title}</DiaryHeaderText>
       <DiaryTextContainer
-        dangerouslySetInnerHTML={{ __html: content }}
+        dangerouslySetInnerHTML={{ __html: postData.content }}
       ></DiaryTextContainer>
     </div>
   );
@@ -35,19 +47,27 @@ interface Params extends ParsedUrlQuery {
 }
 
 export const getStaticProps: GetStaticProps<{}, Params> = async context => {
-  const { entry } = context.params!;
-  const blog: BlogEntry = await getBlogData(entry);
+  const { entry: slug } = context.params!;
+  const post: TBlogPost | null = await getBlogData(slug);
+
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
-    props: blog,
+    props: {
+      post: JSON.stringify(post),
+    },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getBlogList();
+  const posts = await getBlogList();
 
   return {
-    paths: paths.map(p => `/blog/${p}`),
+    paths: posts.map(p => `/blog/${p.slug}`),
     fallback: false,
   };
 };

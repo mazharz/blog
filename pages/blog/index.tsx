@@ -1,41 +1,32 @@
 import { GetStaticProps, NextPage } from "next";
 import { Meta } from "@/Components/layout/meta/meta";
-import { Link } from "@/Components/element/link/link";
-import { Capitalize, DiaryEntryListContainer } from "@/Styles/pages/diary";
-import { CenteredFullHeightContainer } from "@/Styles/globals";
 import { getBlogList } from "@/Lib/helper/blog/blog";
-import { getBlogTitleByEntry } from "@/Lib/helper/blog/utils";
+import { TBlogPostMetadata } from "@/Lib/types/blog";
+import { Posts } from "@/Components/page/blog/posts/posts";
 
-type props = {
-  entries: string[];
+type Props = {
+  posts: string;
 };
 
-const Diary: NextPage<props> = ({ entries }) => {
+const Diary: NextPage<Props> = ({ posts }) => {
+  const parsedPosts: TBlogPostMetadata[] = JSON.parse(posts);
   return (
     <>
       <Meta
         title="MZ | Blog"
         description="The list of Mazhar's diary entries."
       />
-      <CenteredFullHeightContainer>
-        <DiaryEntryListContainer>
-          {entries.map((entry, index) => (
-            <Link key={index} href={"/blog/" + entry} isButtonShaped>
-              <Capitalize>{getBlogTitleByEntry(entry)}</Capitalize>
-            </Link>
-          ))}
-        </DiaryEntryListContainer>
-      </CenteredFullHeightContainer>
+      <Posts posts={parsedPosts} />
     </>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const entries = await getBlogList();
+  const posts = await getBlogList();
 
   return {
     props: {
-      entries,
+      posts: JSON.stringify(posts),
     },
   };
 };

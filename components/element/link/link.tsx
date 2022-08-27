@@ -7,6 +7,7 @@ type props = {
   isActive?: boolean;
   isExternal?: boolean;
   isButtonShaped?: boolean;
+  hasUnderline?: boolean;
 };
 
 const Link: FC<props> = ({
@@ -15,6 +16,7 @@ const Link: FC<props> = ({
   isActive = false,
   isExternal = false,
   isButtonShaped = false,
+  hasUnderline = true,
   ...rest
 }) => {
   return (
@@ -24,12 +26,20 @@ const Link: FC<props> = ({
           <ButtonAnchor isActive={isActive}>{children}</ButtonAnchor>
         </NextLink>
       ) : isExternal ? (
-        <LinkAnchor href={href} isActive={isActive} target="_blank" {...rest}>
+        <LinkAnchor
+          href={href}
+          isActive={isActive}
+          hasUnderline={hasUnderline}
+          target="_blank"
+          {...rest}
+        >
           {children}
         </LinkAnchor>
       ) : (
         <NextLink href={href} {...rest}>
-          <LinkAnchor isActive={isActive}>{children}</LinkAnchor>
+          <LinkAnchor isActive={isActive} hasUnderline={hasUnderline}>
+            {children}
+          </LinkAnchor>
         </NextLink>
       )}
     </>

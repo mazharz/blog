@@ -9,7 +9,6 @@ export const BackButton = styled.div`
 `;
 
 export const DiaryHeaderText = styled.h1`
-  text-transform: capitalize;
   margin: 0 auto ${remByPx[18]};
   padding: ${remByPx[18]} 0;
   border-bottom: ${({ theme }) => `${remByPx[2]} solid ${theme.color8}`};
@@ -46,5 +45,9 @@ export const DiaryTextContainer = styled.div`
     text-decoration: "underline";
     transition: color 0.3s ease-in-out;
     font-weight: 500;
+  }
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
   }
 `;

@@ -1,43 +1,56 @@
 import path from "path";
 import { marked } from "marked";
-import { readdir, readFile } from "fs/promises";
-import { split, map, compose, sortWith, nth, descend } from "ramda";
-import { BlogEntry } from "@/Lib/types/blog";
-import { getBlogTitleByEntry } from "./utils";
+import { readdir } from "fs/promises";
+import { TBlogPost, TBlogPostMetadata } from "@/Lib/types/blog";
+import matter from "gray-matter";
 
 const BLOG_DIRECTORY = "/public/data/blog";
 const directory = path.join(process.cwd(), BLOG_DIRECTORY);
 
-export const getBlogList = async (): Promise<string[]> => {
-  const filenames = await readdir(directory);
-
-  const splitAndTakeNth = (n: number) =>
-    compose<string[], string[], string>(nth(n), split("."));
-
-  const sortAndSelect = compose(
-    map(splitAndTakeNth(1)),
-    sortWith([descend(splitAndTakeNth(0))])
-  );
-
-  return sortAndSelect(filenames);
+const getAllMetadata = (filenames: string[]): TBlogPostMetadata[] => {
+  return filenames.map((filename: string) => {
+    const filePath = path.join(process.cwd(), `${BLOG_DIRECTORY}/${filename}`);
+    const metadata = matter.read(filePath).data;
+    return {
+      title: metadata.title,
+      slug: metadata.slug,
+      date: metadata.date,
+      tags: metadata.tags,
+      filePath,
+    };
+  });
 };
 
-export const getBlogData = async (entry: string): Promise<BlogEntry> => {
-  const title = getBlogTitleByEntry(entry);
+export const getBlogList = async (): Promise<TBlogPostMetadata[]> => {
   const filenames = await readdir(directory);
-  const wantedFileName = filenames.filter(item => item.includes(entry));
-  const filePath = path.join(
-    process.cwd(),
-    `${BLOG_DIRECTORY}/${wantedFileName}`
+
+  const metadata = getAllMetadata(filenames);
+
+  const sorted = metadata.sort((a: TBlogPostMetadata, b: TBlogPostMetadata) =>
+    a.date.getTime() < b.date.getTime() ? 1 : -1
   );
 
-  const markdownText = await readFile(filePath, "utf8");
+  return sorted;
+};
+
+export const getBlogData = async (slug: string): Promise<TBlogPost | null> => {
+  const filenames = await readdir(directory);
+  const metadata = getAllMetadata(filenames);
+  const filtered = metadata.filter(meta => meta.slug === slug);
+  const post = filtered.length >= 1 ? filtered[0] : null;
+  if (!post) return null;
+
+  const postData = matter.read(post.filePath);
   marked.setOptions({ gfm: true });
-  const content = marked.parse(markdownText);
+  const content = marked.parse(postData.content);
 
   return {
-    entry,
-    title,
+    title: postData.data.title,
+    slug: postData.data.slug,
+    date: postData.data.date,
+    tags: postData.data.tags,
+    // @ts-ignore
+    filePath: postData.path,
     content,
   };
 };

@@ -1,13 +1,17 @@
 import styled from "styled-components";
 import { remByPx } from "@/Styles/globals";
 
-export const LinkAnchor = styled.a<{ isActive: boolean }>`
+export const LinkAnchor = styled.a<{
+  isActive: boolean;
+  hasUnderline: boolean;
+}>`
   color: ${({ theme, isActive }) => (isActive ? theme.accent : theme.color5)};
   :hover {
     color: ${({ theme, isActive }) => (isActive ? theme.accent : theme.color4)};
   }
   cursor: ${({ isActive }) => (isActive ? "default" : "pointer")};
-  text-decoration: ${({ isActive }) => (isActive ? "none" : "underline")};
+  text-decoration: ${({ hasUnderline, isActive }) =>
+    hasUnderline ? (isActive ? "none" : "underline") : "none"};
   transition: color 0.3s ease-in-out;
 `;
 
