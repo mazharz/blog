@@ -13,16 +13,28 @@ export const theme = {
   accent: "#ed0f93",
 };
 
-export const screenSize = {
-  mobileS: "320px",
-  mobileM: "375px",
-  mobileL: "425px",
-  tabletS: "500px",
-  tablet: "768px",
-  laptop: "1024px",
-  laptopL: "1440px",
-  desktop: "2560px",
+export const screenSizeNumbers = {
+  mobileS: 320,
+  mobileM: 375,
+  mobileL: 425,
+  tabletS: 500,
+  tablet: 768,
+  laptop: 1024,
+  laptopL: 1440,
+  desktop: 2560,
 };
+
+type TScreenSize = {
+  [K in keyof typeof screenSizeNumbers]: string;
+};
+type TScreenKeys = keyof TScreenSize;
+export const screenSize: TScreenSize = Object.keys(screenSizeNumbers).reduce(
+  (result: TScreenSize, value) => ({
+    ...result,
+    [value]: `${screenSizeNumbers[value as TScreenKeys]}px`,
+  }),
+  {} as TScreenSize
+);
 
 export const device = {
   mobileS: `(min-width: ${screenSize.mobileS})`,

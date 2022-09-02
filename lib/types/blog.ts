@@ -9,3 +9,9 @@ export type TBlogPostMetadata = {
   tags: string;
   filePath: string;
 };
+
+export type TBlogFilters = {
+  date: string;
+  title: string;
+  tags: string;
+};

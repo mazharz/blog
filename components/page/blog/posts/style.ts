@@ -1,4 +1,4 @@
-import { remByPx, theme } from "@/Styles/globals";
+import { device, remByPx, theme } from "@/Styles/globals";
 import styled from "styled-components";
 
 export const PostListContainer = styled.div`
@@ -13,5 +13,9 @@ export const Separator = styled.hr`
   width: 100%;
   background: ${theme.color8};
   border: none;
-  margin: ${remByPx[2]} 0;
+  margin: ${remByPx[16]} 0;
+
+  @media ${device.tablet} {
+    margin: ${remByPx[2]} 0;
+  }
 `;

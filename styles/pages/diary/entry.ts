@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { remByPx, screenSize } from "@/Styles/globals";
+import { remByPx, screenSize, theme } from "@/Styles/globals";
 
 export const BackButton = styled.div`
   margin-top: ${remByPx[18]};
@@ -21,6 +21,7 @@ export const DiaryTextContainer = styled.div`
   max-width: ${screenSize.tabletS};
   color: ${({ theme }) => theme.color4};
   font-weight: 400;
+  line-height: ${remByPx[22]};
   counter-reset: h2counter;
   h2 {
     counter-reset: h3counter;
@@ -49,5 +50,11 @@ export const DiaryTextContainer = styled.div`
   pre {
     max-width: 100%;
     overflow-x: auto;
+  }
+  *:not(pre) code {
+    background-color: ${theme.color3};
+    color: ${theme.color7};
+    padding: 0 0.3rem;
+    border-radius: ${remByPx[8]};
   }
 `;

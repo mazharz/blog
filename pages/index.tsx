@@ -24,8 +24,7 @@ const Home: NextPage = () => {
         <RegularParagraph>
           On this site, you can find links to my hobby{" "}
           <Link href="/projects">projects</Link> and blog{" "}
-          <Link href="/blog">posts</Link> that I&apos;ve come up with over the
-          years.
+          <Link href="/blog">posts</Link>.
         </RegularParagraph>
       </RegularParagraphContainer>
     </>
