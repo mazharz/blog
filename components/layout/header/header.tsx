@@ -1,4 +1,4 @@
-import { Container, Name, Nav, NavLink } from "./styles";
+import { Container, Name } from "./styles";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { Link } from "@/Components/element/link/link";
@@ -13,18 +13,6 @@ const Header: FC = () => {
           Mazhar Zandsalimi
         </Link>
       </Name>
-      <Nav>
-        <NavLink>
-          <Link href="/projects" isActive={router.asPath === "/projects"}>
-            Projects
-          </Link>
-        </NavLink>
-        <NavLink>
-          <Link href="/blog" isActive={router.asPath === "/blog"}>
-            Blog
-          </Link>
-        </NavLink>
-      </Nav>
     </Container>
   );
 };

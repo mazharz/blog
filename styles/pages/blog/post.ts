@@ -8,7 +8,7 @@ export const BackButton = styled.div`
   line-height: ${remByPx[18]};
 `;
 
-export const DiaryHeaderText = styled.h1`
+export const PostHeaderText = styled.h1`
   margin: 0 auto ${remByPx[18]};
   padding: ${remByPx[18]} 0;
   border-bottom: ${({ theme }) => `${remByPx[2]} solid ${theme.color8}`};
@@ -16,7 +16,7 @@ export const DiaryHeaderText = styled.h1`
   color: ${({ theme }) => theme.color4};
 `;
 
-export const DiaryTextContainer = styled.div`
+export const PostTextContainer = styled.div`
   margin: 0 auto ${remByPx[50]};
   max-width: ${screenSize.tabletS};
   color: ${({ theme }) => theme.color4};

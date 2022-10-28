@@ -1,34 +1,31 @@
+import { GetStaticProps, NextPage } from "next";
 import { Meta } from "@/Components/layout/meta/meta";
-import type { NextPage } from "next";
-import {
-  HeadingTitle,
-  RegularParagraph,
-  RegularParagraphContainer,
-} from "@/Styles/index";
-import { Link } from "@/Components/element/link/link";
+import { getBlogList } from "@/Lib/helper/blog/blog";
+import { TBlogPostMetadata } from "@/Lib/types/blog";
+import { Posts } from "@/Components/page/blog/posts/posts";
 
-const Home: NextPage = () => {
+type Props = {
+  posts: string;
+};
+
+const Home: NextPage<Props> = ({ posts }) => {
+  const parsedPosts: TBlogPostMetadata[] = JSON.parse(posts);
   return (
     <>
-      <Meta
-        title="Mazhar Zandsalimi"
-        description="Mazhar Zandsalimi's personal website"
-      />
-
-      <RegularParagraphContainer>
-        <HeadingTitle>Hello, friend.</HeadingTitle>
-        <RegularParagraph>
-          I&apos;m Maz, an optimistic nihilist, Cartesian skepticist, realist,
-          humble perfectionist!
-        </RegularParagraph>
-        <RegularParagraph>
-          On this site, you can find links to my hobby{" "}
-          <Link href="/projects">projects</Link> and blog{" "}
-          <Link href="/blog">posts</Link>.
-        </RegularParagraph>
-      </RegularParagraphContainer>
+      <Meta title="Maz | Blog" description="Mazhar's blog posts" />
+      <Posts posts={parsedPosts} />
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getBlogList();
+
+  return {
+    props: {
+      posts: JSON.stringify(posts),
+    },
+  };
 };
 
 export default Home;

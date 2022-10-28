@@ -1,3 +1,3 @@
 # m47h4r.github.io
 
-Mazhar's personal portfolio.
+Mazhar's personal blog.

@@ -11,7 +11,7 @@ const PostLink = ({ post }: Props) => {
   const formattedDate = dayjs(post.date).format("YYYY ddd, MMM D");
 
   return (
-    <Link key={post.slug} href={"/blog/" + post.slug} hasUnderline={false}>
+    <Link key={post.slug} href={"/" + post.slug} hasUnderline={false}>
       <PostLinkContainer>
         <Date>{formattedDate}</Date>
         <Title>{post.title}</Title>

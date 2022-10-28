@@ -3,9 +3,9 @@ import { Link } from "@/Components/element/link/link";
 import { Meta } from "@/Components/layout/meta/meta";
 import {
   BackButton,
-  DiaryHeaderText,
-  DiaryTextContainer,
-} from "@/Styles/pages/diary/entry";
+  PostHeaderText,
+  PostTextContainer,
+} from "@/Styles/pages/blog/post";
 import { ParsedUrlQuery } from "querystring";
 import { getBlogData, getBlogList } from "@/Lib/helper/blog/blog";
 import { TBlogPost } from "@/Lib/types/blog";
@@ -16,7 +16,7 @@ type Props = {
   post: string;
 };
 
-const DiaryEntry: NextPage<Props> = ({ post }) => {
+const BlogPost: NextPage<Props> = ({ post }) => {
   const postData: TBlogPost = JSON.parse(post);
 
   useEffect(() => {
@@ -25,29 +25,26 @@ const DiaryEntry: NextPage<Props> = ({ post }) => {
 
   return (
     <div>
-      <Meta
-        title={`MZ | ${postData.title}`}
-        description={`Mazhar's diary entry named ${postData.title}.`}
-      />
+      <Meta title={`Maz | ${postData.title}`} description={postData.title} />
       <BackButton>
-        <Link href="/blog" isButtonShaped>
+        <Link href="/" isButtonShaped>
           ←
         </Link>
       </BackButton>
-      <DiaryHeaderText>{postData.title}</DiaryHeaderText>
-      <DiaryTextContainer
+      <PostHeaderText>{postData.title}</PostHeaderText>
+      <PostTextContainer
         dangerouslySetInnerHTML={{ __html: postData.content }}
-      ></DiaryTextContainer>
+      ></PostTextContainer>
     </div>
   );
 };
 
 interface Params extends ParsedUrlQuery {
-  entry: string;
+  post: string;
 }
 
 export const getStaticProps: GetStaticProps<{}, Params> = async context => {
-  const { entry: slug } = context.params!;
+  const { post: slug } = context.params!;
   const post: TBlogPost | null = await getBlogData(slug);
 
   if (!post) {
@@ -67,9 +64,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getBlogList();
 
   return {
-    paths: posts.map(p => `/blog/${p.slug}`),
+    paths: posts.map(p => `/${p.slug}`),
     fallback: false,
   };
 };
 
-export default DiaryEntry;
+export default BlogPost;
