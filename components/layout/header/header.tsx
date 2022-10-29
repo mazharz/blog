@@ -10,7 +10,7 @@ const Header: FC = () => {
     <Container>
       <Name>
         <Link href="/" isActive={router.asPath === "/"}>
-          Mazhar Zandsalimi
+          Maz
         </Link>
       </Name>
     </Container>
