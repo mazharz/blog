@@ -30,7 +30,7 @@ const Footer: FC = () => {
             </Link>
           </NavLink>
           <NavLink>
-            <Link href="https://www.linkedin.com/in/m47h4r/" isExternal>
+            <Link href="https://www.linkedin.com/in/mazharz" isExternal>
               LinkedIn
             </Link>
           </NavLink>
