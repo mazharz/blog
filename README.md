@@ -1,3 +1,3 @@
-# m47h4r.github.io
+# blog
 
 Mazhar's personal blog.
