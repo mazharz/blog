@@ -25,7 +25,7 @@ const Footer: FC = () => {
       >
         <Nav id="footer-nav">
           <NavLink>
-            <Link href="https://github.com/m47h4r" isExternal>
+            <Link href="https://github.com/mazharz" isExternal>
               GitHub
             </Link>
           </NavLink>

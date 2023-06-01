@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build && next export && touch ./out/.nojekyll && gh-pages -t -d out/",
+    "deploy": "next build && next export && touch ./out/.nojekyll && echo 'mazhar.pro' > ./out/CNAME && gh-pages -t -d out/",
     "analyze": "ANALYZE=true npm run build"
   },
   "dependencies": {
