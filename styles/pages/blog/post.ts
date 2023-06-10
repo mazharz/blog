@@ -12,13 +12,13 @@ export const PostHeaderText = styled.h1`
   margin: 0 auto ${remByPx[18]};
   padding: ${remByPx[18]} 0;
   border-bottom: ${({ theme }) => `${remByPx[2]} solid ${theme.color8}`};
-  max-width: ${screenSize.tabletS};
+  max-width: ${screenSize.tablet};
   color: ${({ theme }) => theme.color4};
 `;
 
 export const PostTextContainer = styled.div`
   margin: 0 auto ${remByPx[50]};
-  max-width: ${screenSize.tabletS};
+  max-width: ${screenSize.tablet};
   color: ${({ theme }) => theme.color4};
   font-weight: 400;
   line-height: ${remByPx[22]};
