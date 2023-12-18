@@ -11,3 +11,5 @@
 [How JS wastes your time](./posts/0002.how-js-wastes-your-time.md)
 
 [Redux-like global state](./posts/0001.redux-like-global-state.md)
+
+[Beware of env vars](./posts/0006.beware-of-env-vars.md)
