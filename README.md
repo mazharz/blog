@@ -13,3 +13,5 @@
 [Redux-like global state](./posts/0001.redux-like-global-state.md)
 
 [Beware of env vars](./posts/0006.beware-of-env-vars.md)
+
+[Use context for static data](./posts/0007.use-context-for-static-data.md)
